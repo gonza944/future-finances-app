@@ -1,0 +1,20 @@
+.modal {
+  background-image: url(../../Assets/post-color-graded.png),
+    linear-gradient(to bottom, rgba(255, 255, 0, 0.5), rgba(0, 0, 255, 0.5));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 85rem;
+}
+
+.googleButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
