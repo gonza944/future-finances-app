@@ -1,3 +1,6 @@
+@import './colors.scss';
+@import './fonts.scss';
+
 html,
 body {
   padding: 0;
@@ -26,13 +29,17 @@ a {
 }
 
 h2 {
-  font-family: 'Amatic SC', cursive;
-  font-size: 32px;
-  color: #38342F;
+  @include font(32px, 700 1.29, 'Amatic SC');
+  color: $text-dark;
 }
 
 h3 {
-  font-family: 'Annie Use Your Telescope', cursive;
-  font-size: 24px;
-  color: #38342F;
+  @include font(24px, 600 1.29);
+  color: $text-dark;
+}
+
+p {
+  @include font(24px);
+  color: $text-dark;
+  margin: 10px;
 }

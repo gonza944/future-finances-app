@@ -1,0 +1,10 @@
+@import "../../styles/colors.scss";
+
+.logOut {
+  margin-top: auto;
+  background: $text-light;
+  border-radius: 4px;
+  color: $text-dark;
+  display: flex;
+  justify-content: center;
+}

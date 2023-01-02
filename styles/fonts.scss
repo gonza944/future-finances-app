@@ -1,0 +1,11 @@
+@mixin font(
+  $size: 14px,
+  $weight: 400,
+  $lineHeight: 1.29,
+  $fontName: 'Annie Use Your Telescope'
+) {
+  font-family: $fontName, cursive;
+  line-height: $lineHeight;
+  font-size: $size;
+  font-weight: $weight;
+}

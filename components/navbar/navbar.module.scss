@@ -1,0 +1,20 @@
+@import "../../styles/colors.scss";
+@import "../../styles/fonts.scss";
+
+.navbar {
+  height: 3.75rem;
+  width: 100%;
+  background-color: $background-dark;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+padding: 2rem;
+ @include font(32px, 800, 30px, 'Amatic SC');
+ background: linear-gradient(271.89deg, #8FCAE3 22.06%, #5C8191 116.84%);
+ background: linear-gradient(271.89deg, #8FCAE3 22.06%, #5C8191 116.84%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}

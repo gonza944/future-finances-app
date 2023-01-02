@@ -1,14 +1,14 @@
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import Home from "../components/home/home";
 
-export default function Home() {
+
+export default function Index() {
   const { status } = useSession();
 
   if (status === "authenticated") {
     return (
-      <div>
-        <Link href="/api/auth/signout">Sign out</Link>
-      </div>
+     <Home/>
     );
   }
 
