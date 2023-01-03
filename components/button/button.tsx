@@ -6,13 +6,24 @@ export enum ButtonType {
   Secondary,
 }
 
-export type buttonProps = {
+type CommonButtonProps = {
   copy: string;
   onCLick: () => void;
-  type?: ButtonType;
   overridenStyles?: { [key: string]: string };
-  children?: JSX.Element,
+  children?: JSX.Element;
 };
+
+type variableButtonProps =
+  | {
+      type: ButtonType.Secondary;
+      hightlighted: boolean;
+    }
+  | {
+      type: ButtonType.Primary;
+      hightlighted?: never;
+    };
+
+export type buttonProps = CommonButtonProps & variableButtonProps;
 
 const typeToClass = new Map<ButtonType, string>();
 typeToClass.set(ButtonType.Primary, styles.primary);
@@ -24,12 +35,17 @@ const Button: React.FC<buttonProps> = ({
   overridenStyles,
   onCLick,
   children,
+  hightlighted = false,
 }) => (
   <button
     onClick={onCLick}
-    className={cx(typeToClass.get(type), overridenStyles)}>
+    className={cx(
+      typeToClass.get(type),
+      hightlighted && styles.hightlighted,
+      overridenStyles
+    )}>
     {children}
-    <p>{copy}</p>
+    <p className={styles.copy}>{copy}</p>
   </button>
 );
 
