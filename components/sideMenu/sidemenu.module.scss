@@ -9,3 +9,28 @@
   width: 20%;
 }
 
+.plusIcon {
+  width: 24px;
+  height: 24px;
+  font-weight: normal;
+}
+
+.notebookWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: flex-start;
+  border-bottom: 1px solid $text-light;
+  padding-bottom: 24px;
+}
+
+.notebookList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.copy {
+  color: $text-light;
+}
