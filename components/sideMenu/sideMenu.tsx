@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import PlusIconProps from "../../Assets/plusIcon";
 import NotebookIcon from "../../Assets/notebookIcon";
 import Button, { ButtonType } from "../button/button";
@@ -9,9 +9,18 @@ import LogOut from "../logOut/logOut";
 
 const SideMenu: React.FC = () => {
   const [notebooks, setNotebooks] = useState([
-    { name: "mock Notebook 1", selected: true, id: 1 },
-    { name: "mock Notebook 2", selected: false, id: 2 },
+    { name: "mock Notebook 1", id: 1 },
+    { name: "mock Notebook 2", id: 2 },
   ]);
+
+  const [selectedNotebook, setSelectedNotebook] = useState(1);
+
+  const onClick = useCallback(
+    (id: number) => () => {
+      setSelectedNotebook(id);
+    },
+    []
+  );
 
   const renderNotebooks = useMemo(
     () => (
@@ -20,15 +29,15 @@ const SideMenu: React.FC = () => {
           <Button
             key={notebook.id}
             type={ButtonType.Secondary}
-            hightlighted={notebook.selected}
+            hightlighted={notebook.id === selectedNotebook}
             copy={notebook.name}
-            onCLick={() => {}}>
+            onCLick={onClick(notebook.id)}>
             <NotebookIcon props={{ className: styles.plusIcon }} />
           </Button>
         ))}
       </div>
     ),
-    [notebooks]
+    [notebooks, onClick, selectedNotebook]
   );
 
   return (
@@ -47,7 +56,7 @@ const SideMenu: React.FC = () => {
         onCLick={() => {}}>
         <SettingsIcon props={{ className: styles.plusIcon }} />
       </Button>
-      <LogOut/>
+      <LogOut />
     </div>
   );
 };

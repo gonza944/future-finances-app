@@ -4,6 +4,7 @@ import styles from './home.module.scss'
 const Home: React.FC = () => {
   return (
     <div className={styles.mainWrapper}>
+      something
     </div>
   );
 };
